@@ -1,4 +1,4 @@
-<h1>Learning ratings through reviews.</h1>
+<h1>Ratings Predictor</h1>
 
 <h2>Zocdoc Potential ratings for reviews</h2>
 <i> Author: Santosh Sonawane </i><br>
