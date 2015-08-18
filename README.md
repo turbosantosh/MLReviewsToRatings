@@ -1,8 +1,8 @@
-Title - Learning ratings through reviews.
+<h1>Title - Learning ratings through reviews.</h1>
 
-Zocdoc Potential ratings for reviews
-
-This project explore different machine learning techniques to predict if a user is satisfied given his review comments. 
+<h2>Zocdoc Potential ratings for reviews</h2>
+<i> Author: Santosh Sonawane </i><br>
+This project explores different machine learning techniques to predict if a user is satisfied given his review comments. 
 Assumption: If a user rates 4,5 then he is satisfied.
 
 Data is fetched by scraping zocdoc.com for all the Primary care physicians in Manhattan.
