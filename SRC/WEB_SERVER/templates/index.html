@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>How satisfied a Patient is?</title>
+        <meta name="description" content="Check how your review sounds">
+        <meta name="keywords" content="Demo of Machine Learning techniques">
+        <meta charset="UTF-8">
+
+        <!-- Favicon icons for in browser -->
+        <link rel="icon" href="/static/images/doctor.ico">
+        <link rel="shortcut icon" href="/static/images/doctor.ico">
+
+        <!-- You could steal GA's style sheets -->
+        <meta content='./doctor.png' name='msapplication-TileImage'>
+        <meta content='7dc9da01bd1d54afbb191ba94edbba29' name='p:domain_verify'>
+        <link cache="false" href="https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/public-libs-059901b17cc9c5a9373274d9f59e6f9d.css" media="all" rel="stylesheet" />
+        <link cache="false" href="https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/public-547f2540364c8bb94466fa72100baf5d.css" media="all" rel="stylesheet" />
+        <link cache="false" href="https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/slick-3d8363006236442acf46fe347730e823.css" media="all" rel="stylesheet" />
+        <link href="https://ga-core-production-herokuapp-com.global.ssl.fastly.net/assets/public/homepage-headers-4521e0c7de57953337f283b862746c36.css" media="screen" rel="stylesheet" />
+
+        <!-- .. or use your own style sheet -->
+        <link rel="stylesheet" href="/static/css/style_sheet.css">
+
+    </head>
+    <body >
+        <div>
+            <p>
+                <b>Please enter your review</b>
+            </p>
+            <div>
+		<form name="login" method="post" action="/show" id="111">
+			<textarea cols="25" rows="7" id='screen_name' name="screen_name" form="111"></textarea> 
+		</form>
+		<br>
+		<button  formmethod="post" form="111" type="submit" formaction="/show">Check It!</button>
+                <!--form name="login" method="post" action="/show">
+                    <input type="text" name="screen_name" placeholder="" required id="screen_name_input" >
+                </form-->
+            </div>
+            <div>
+                {% if answer %}
+                    <p>
+                        <img src='static/images/like.jpg' height=50 align="center">
+                        {{ answer|e|safe }}
+                    </p>
+	        {% elif answer == false %}
+                    <p>
+                        <img src='static/images/dislike.jpg' height=50 align="center">
+                        {{ answer|e|safe }}
+                    </p>
+                {% endif %}
+            </div-->
+        </div>
+    </body>
+</html>
