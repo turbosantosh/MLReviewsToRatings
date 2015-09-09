@@ -17,10 +17,10 @@ class Predictor():
 		#Load from the pickle file if it exists
 		#Otherwise train the model
 		if os.path.isfile(MODEL_PICKLE_FILE_PATH):
-			with open(MODEL_PICKLE_FILE_PATH) as f:
+			with open(MODEL_PICKLE_FILE_PATH, "rb") as f:
 				    self._model = pickle.load(f)
 				    try:
-					    with open(CV_PICKLE_FILE_PATH) as cvp:
+					    with open(CV_PICKLE_FILE_PATH, "rb") as cvp:
 						    self._cv = pickle.load(cvp)
 						    print 'Loaded the model and cv'
 						    return
@@ -45,9 +45,9 @@ class Predictor():
 		 #print cross_val_score(self._model, X, docData.isGood, cv=5, scoring='roc_auc').mean()
 		 #print cross_val_score(self._model, X, docData.isGood, cv=5, scoring='precision').mean()
 		self._model.fit(X, docData.isGood)
-		with open(MODEL_PICKLE_FILE_PATH, 'w') as f:
+		with open(MODEL_PICKLE_FILE_PATH, 'wb') as f:
 			pickle.dump(self._model, f)
-		with open(CV_PICKLE_FILE_PATH,'w') as f:
+		with open(CV_PICKLE_FILE_PATH,'wb') as f:
 			pickle.dump(self._cv, f)
 
 
@@ -57,7 +57,6 @@ class Predictor():
 			 #self._cv = TfidfVectorizer(stop_words=['a', 'an', 'the', 'and', 'd', 'that', 'am', 'are', 'I', 'We', 'you'], ngram_range=(1, 3), max_features=20000)
 			self._cv = TfidfVectorizer(stop_words=['it', 'he', 'she', 'they', 'those', 'that', 'them', 'in', 'on', 'for', 'by', 'of', 'a', 'an', 'the', 'and', 'd', 'that', 'am', 'are', 'I', 'We', 'you'], ngram_range=(1, 3), max_features=20000)
 		X = self._cv.transform([review])
-		print "HERER======="
 		return self._model.predict(X.toarray())
 
 

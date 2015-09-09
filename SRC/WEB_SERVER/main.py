@@ -19,7 +19,7 @@ def index():
 def show_tweets():
     reviewText = request.form['screen_name'].encode('ascii', 'ignore').lower().strip()
     try:
-        print "Review text is ", reviewText
+	print "Review text is ", reviewText
 	answer = predictor.predict(reviewText)
 	print answer
     except Exception as e:
