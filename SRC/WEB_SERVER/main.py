@@ -1,6 +1,5 @@
 """Flask demo"""
 from flask import Flask, render_template, request
-import twitter
 import json
 import sys
 sys.path.append('../PREDICTOR')
@@ -23,9 +22,8 @@ def show_tweets():
         print "Review text is ", reviewText
 	answer = predictor.predict(reviewText)
 	print answer
-#raw_tweets = twitter_api.statuses.user_timeline(screen_name=user)
-    except:
-   	print 'Some error', reviewText 
+    except Exception as e:
+   	print 'Some error', reviewText, "\n", str(e) 
     else:
     	pass
         # Never a bad idea to save your data - you're a data scientist after all!
@@ -43,5 +41,5 @@ def show_tweets():
 
 if __name__ == '__main__':
     predictor = Predictor()
-    app.run(debug=True)
-    # app.run(host='0.0.0.0', debug=False)  # Never have debug = True when hosting a public website!
+    #app.run(debug=True, port=5000)
+    app.run(host='0.0.0.0', debug=True)  # Never have debug = True when hosting a public website!

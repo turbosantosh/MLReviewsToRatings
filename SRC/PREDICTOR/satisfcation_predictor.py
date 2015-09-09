@@ -1,6 +1,5 @@
 import pandas as pd
 import pickle
-from matplotlib import pyplot as plt
 import os.path
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 import numpy as np
@@ -25,7 +24,8 @@ class Predictor():
 						    self._cv = pickle.load(cvp)
 						    print 'Loaded the model and cv'
 						    return
-				    except:
+				    except Exception as e:
+					    print "Exception in constructor while loading pickle", str(e)
 					    pass
 		docData = pd.read_csv(path)
 		docData = docData.dropna()
@@ -57,6 +57,7 @@ class Predictor():
 			 #self._cv = TfidfVectorizer(stop_words=['a', 'an', 'the', 'and', 'd', 'that', 'am', 'are', 'I', 'We', 'you'], ngram_range=(1, 3), max_features=20000)
 			self._cv = TfidfVectorizer(stop_words=['it', 'he', 'she', 'they', 'those', 'that', 'them', 'in', 'on', 'for', 'by', 'of', 'a', 'an', 'the', 'and', 'd', 'that', 'am', 'are', 'I', 'We', 'you'], ngram_range=(1, 3), max_features=20000)
 		X = self._cv.transform([review])
+		print "HERER======="
 		return self._model.predict(X.toarray())
 
 
