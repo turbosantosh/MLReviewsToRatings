@@ -27,20 +27,10 @@ def show_tweets():
    	print 'Some error', reviewText, "\n", str(e) 
     else:
     	pass
-        # Never a bad idea to save your data - you're a data scientist after all!
-#        with open('tweets/%s.json' % user, 'w') as f:
-#           json.dump(raw_tweets, f, indent=2)
-
-        # parse raw tweets into something you want to display
-#tweets = [
-#           tweet.get('user', {}).get('name', 'Unknown tweeter') + ': ' +
-#           tweet.get('text', '(no text)')
-#           for tweet in raw_tweets]
 
     return render_template('/index.html', answer=answer, previous_text=reviewText)
 
 
 if __name__ == '__main__':
     predictor = Predictor()
-    #app.run(debug=True, port=5000)
-    app.run(host='0.0.0.0', debug=True)  # Never have debug = True when hosting a public website!
+    app.run(host='0.0.0.0', debug=False)  # Never have debug = True when hosting a public website!
