@@ -7,7 +7,7 @@ from satisfcation_predictor import Predictor
 
 # Init Flas app and Twitter api
 app = Flask(__name__)
-
+app._static_folder = "./static/"
 predictor = None
 
 @app.route('/')
@@ -18,6 +18,7 @@ def index():
 @app.route('/show', methods=['GET', 'POST'])
 def show_tweets():
     reviewText = request.form['screen_name'].encode('ascii', 'ignore').lower().strip()
+    print reviewText
     try:
 	print "Review text is ", reviewText
 	answer = predictor.predict(reviewText)
@@ -36,7 +37,7 @@ def show_tweets():
 #           tweet.get('text', '(no text)')
 #           for tweet in raw_tweets]
 
-    return render_template('/index.html', answer=answer)
+    return render_template('/index.html', answer=answer, previous_text=reviewText)
 
 
 if __name__ == '__main__':
