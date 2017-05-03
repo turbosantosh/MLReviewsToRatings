@@ -15,7 +15,7 @@ Assumption: If a user rates 4,5 then he is satisfied.
 
 Data is fetched by scraping zocdoc.com for all the Primary care physicians in Manhattan.
 
-## Requires
+## Requires:
 1. BeautifulSoup Dom parser, if you want to use the extractor/scraper
 2. pickle
 3. scikit (Anaconda)
