@@ -1,9 +1,9 @@
+###### This uses Beutiful Soup DOM parser to parse out the zocdoc webpages
 from bs4 import BeautifulSoup
 from os import listdir
 from os.path import isfile, join
 import sys
 
-#DOCTORS_DIR='/Users/Santosh/PROJECTS/GITHUB/MLReviewsToRatings/HTMLS/DOCTORS/'
 DOCTORS_DIR='../..//HTMLS/DOCTORS/'
 OUTPUT_CSV_NAME='../../DATA/zocdocData.csv'
 cma=','

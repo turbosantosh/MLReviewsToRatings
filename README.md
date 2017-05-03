@@ -1,13 +1,32 @@
-<h1>Ratings Predictor</h1>
+# Ratings Predictor
 
-<h2>Zocdoc Potential ratings for reviews</h2>
-<i> Author: Santosh Sonawane </i><br>
+## Zocdoc Potential ratings for reviews
+
+@Author: Santosh Sonawane 
+
+### NOTE:
+I am no more maintaining this repo. Please feel free to use and send PR if you have any improvements. 
+     This project was done as a part of a Machine Learning course that I attended at General Assembly, NY.
+https://github.com/ga-students/DAT-23-NYC 
+
+
 This project explores different machine learning techniques to predict if a user is satisfied given his review comments. 
 Assumption: If a user rates 4,5 then he is satisfied.
 
 Data is fetched by scraping zocdoc.com for all the Primary care physicians in Manhattan.
 
-Directory Structure:
+## Requires
+1. BeautifulSoup Dom parser, if you want to use the extractor/scraper
+2. pickle
+3. scikit (Anaconda)
+4. flask
+
+## How to run:
+1. cd SRC/WEB_SERVER
+2. python main.py
+It will train the machine learning model using the zocdoc files in DATA and start a flask webserver.
+
+## Directory Structure:
 * README.md - Self.
 * DATA 
        Data stored as DocName,DocDegree,Location,PatientName,ReviewDate,OverallRating,BedsideMannerRating,WaitTimeRating,Review
@@ -28,7 +47,7 @@ Directory Structure:
        Data set is skewed towards Positives-91% positives, so Accuracy and Recall are not the best metrics. 
        Accuracy, Precision and Recall tested using cross validation and input test set resulted in ~99% accuracy.
 
-Enhancements:
+## Enhancements:
 * Try other classifiers
 * Use tfid vectorizer and trigrams. Try increasing number of Features
 * Use Dimensionality reduction to reduce the features

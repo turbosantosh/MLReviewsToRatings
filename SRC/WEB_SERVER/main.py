@@ -5,7 +5,6 @@ import sys
 sys.path.append('../PREDICTOR')
 from satisfcation_predictor import Predictor
 
-# Init Flas app and Twitter api
 app = Flask(__name__)
 app._static_folder = "./static/"
 predictor = None
